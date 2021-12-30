@@ -1,0 +1,43 @@
+package(default_visibility = ["//visibility:public"])
+
+load(":xc32_cc_toolchain_config.bzl", "xc32_cc_toolchain_config")
+
+cc_toolchain_suite(
+    name = "xc32_suite",
+    toolchains = {
+        "mcp32": ":xc32_toolchain",
+    },
+)
+
+filegroup(name = "empty")
+
+filegroup(
+  name = 'wrappers',
+  srcs = glob([
+    'wrappers/**',
+  ]),
+)
+
+filegroup(
+    name = "all",
+    srcs = [
+        ":wrappers",
+        "@xc32//:all",
+    ]
+)
+
+xc32_cc_toolchain_config(name = "mcp32_toolchain_config")
+
+cc_toolchain(
+    name = "xc32_toolchain",
+    toolchain_identifier = "mcp32-toolchain",
+    toolchain_config = ":mcp32_toolchain_config",
+    all_files = ":all",
+    ar_files = ":all",
+    compiler_files = ":all",
+    dwp_files = ":empty",
+    linker_files = ":all",
+    objcopy_files = ":empty",
+    strip_files = ":empty",
+    supports_param_files = 0,
+)
