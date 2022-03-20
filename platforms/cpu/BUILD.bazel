@@ -1,0 +1,5 @@
+constraint_value(
+    name = "mcp32",
+    constraint_setting = "@platforms//cpu:cpu",
+    visibility = ["//visibility:public"],
+)

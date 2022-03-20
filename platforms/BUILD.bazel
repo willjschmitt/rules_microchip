@@ -1,0 +1,7 @@
+platform(
+    name = "mcp32",
+    constraint_values = [
+        "//platforms/cpu:mcp32",
+    ],
+    visibility = ["//visibility:public"],
+)
