@@ -1,2 +1,5 @@
 # Bazel build directories
 bazel-*/
+
+
+.ijwb/
