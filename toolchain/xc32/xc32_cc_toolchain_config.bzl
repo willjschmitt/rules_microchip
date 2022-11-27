@@ -107,7 +107,7 @@ def _impl(ctx):
                                 "-fenforce-eh-specs",
 
                                 # This ensures we don't need to specify absolute
-                                # paths to 
+                                # paths to
                                 # `cc_common.create_cc_toolchain_config_info.cxx_builtin_include_directories
                                 # below, which is very painful given that actual
                                 # paths cannot be predicted on a host machine.
