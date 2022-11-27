@@ -1,5 +1,7 @@
 # Bazel build directories
 bazel-*/
 
-
+# IntelliJ Bazel Plugin Files.
 .ijwb/
+# IntelliJ primary project directory.
+.idea/
