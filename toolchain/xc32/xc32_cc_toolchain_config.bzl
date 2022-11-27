@@ -119,35 +119,43 @@ def _impl(ctx):
                 ),
             ],
         ),
-        feature(
-            name = "xc32_device_linking_flags",
-            enabled = True,
-            flag_sets = [
-                flag_set(
-                    actions = all_link_actions,
-                    flag_groups = ([
-                        flag_group(
-                            flags = [
-                                # TODO(willjschmitt): This hard-codes the path
-                                #  where Bazel will install the device-packs on
-                                #  my desktop. This isn't portable, so it's a
-                                #  critical need to remove this option and make
-                                #  it provided as a linkopt or data instead
-                                #  pointing at the bazel reference target.
-                                "-mdfp=/home/will/Documents/electric-vehicle/electric-vehicle-controller/bazel-electric-vehicle-controller/external/pic32mk_gp_dfp",
-
-                                # TODO(willjschmitt): It is likely to become
-                                #  necessary to include the peripheral libraries
-                                #  at some point, so we will need to include
-                                #  this along with some more external
-                                #  repositories.
-                                # "-mperipheral-libs",
-                            ],
-                        ),
-                    ]),
-                ),
-            ],
-       ),
+        # TODO(willjschmitt): This is currently commented out, since the pending
+        #  flags are all commented out. This means the feature is invalid with
+        #  an empty flag group. Thus, we will leave it commented out in-whole
+        #  for future use.
+        # feature(
+        #     name = "xc32_device_linking_flags",
+        #     enabled = True,
+        #     flag_sets = [
+        #         flag_set(
+        #             actions = all_link_actions,
+        #             flag_groups = ([
+        #                 flag_group(
+        #                     flags = [
+        #                         # TODO(#3): This hard-codes the path where Bazel
+        #                         #  will install the device-packs on my desktop.
+        #                         #  This isn't portable, so it's a critical need
+        #                         #  to remove this option and make it provided as
+        #                         #  a linkopt or data instead pointing at the
+        #                         #  bazel reference target. As far as I can tell,
+        #                         #  xc32 _requires_ the path to be absolute,
+        #                         #  based on testing with all possible relative
+        #                         #  paths, but the feature is not well
+        #                         #  documented, so that conclusion could be wrong.
+        #                         # "-mdfp=/home/will/electric_vehicle/electric-vehicle-controller/bazel-electric-vehicle-controller/external/pic32mk_gp_dfp",
+        #
+        #                         # TODO(willjschmitt): It is likely to become
+        #                         #  necessary to include the peripheral libraries
+        #                         #  at some point, so we will need to include
+        #                         #  this along with some more external
+        #                         #  repositories.
+        #                         # "-mperipheral-libs",
+        #                     ],
+        #                 ),
+        #             ]),
+        #         ),
+        #     ],
+        # ),
     ]
 
     return cc_common.create_cc_toolchain_config_info(
