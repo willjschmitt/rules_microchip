@@ -128,15 +128,6 @@ def _impl(ctx):
                     flag_groups = ([
                         flag_group(
                             flags = [
-                                # TODO(willjschmitt): This should be included
-                                #  only in the BUILD file for the binary rather
-                                #  than hardcoding a processor in the toolchain,
-                                #  but it's not acceptable to include this only
-                                #  in copts, linkopts, or both, since they
-                                #  either conflict or are not sufficient on
-                                #  their own.
-                                "-mprocessor=32MK1024GPE100",
-
                                 # TODO(willjschmitt): This hard-codes the path
                                 #  where Bazel will install the device-packs on
                                 #  my desktop. This isn't portable, so it's a
